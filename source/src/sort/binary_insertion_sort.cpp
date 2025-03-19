@@ -1,9 +1,8 @@
 #include "../utils/utils.h"
 
 int binarySearch(Result &r, int *arr, int item, int low, int high) {
-    while (low <= high) {
+    while (++r.cmps && low <= high) {
         int mid = (low + high) / 2;
-        r.cmps++;
         if (++r.cmps && arr[mid] == item)
             return mid + 1;
         else if (++r.cmps && arr[mid] < item)
@@ -22,8 +21,7 @@ Result binaryInsertionSort(int *arr, int n) {
         int pos = binarySearch(r,arr, key, 0, i - 1);
 
         int j = i;
-        while (j > pos) {
-            r.cmps++;
+        while (++r.cmps &&j > pos) {
             arr[j] = arr[j - 1];
             j--;
         }
