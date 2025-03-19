@@ -7,8 +7,7 @@ Result shakerSort(int *arr, int n) {
 
 	while (left < right) {
 		for (int i = left; ++r.cmps && i < right; ++i) {
-			r.cmps++; // Đếm số lần so sánh
-			if (arr[i] > arr[i + 1]) {
+			if (++r.cmps && arr[i] > arr[i + 1]) {
 				HoanVi(arr[i], arr[i + 1]);
 				k = i;
 			}
@@ -16,8 +15,7 @@ Result shakerSort(int *arr, int n) {
 
 		right = k;
 		for (int i = right; ++r.cmps && i > left; --i) {
-			r.cmps++; // Đếm số lần so sánh
-			if (arr[i] < arr[i - 1]) {
+			if (++r.cmps && arr[i] < arr[i - 1]) {
 				HoanVi(arr[i], arr[i - 1]);
 				k = i;
 			}
